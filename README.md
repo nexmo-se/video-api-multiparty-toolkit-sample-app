@@ -15,9 +15,32 @@ This application shows how to build a multi-party video app with [Vonage Video E
 ## Installation
 
 1. Run `npm install` to install all dependencies from NPM.
-2. Copy the `env.example` file to `.env.development` or `.env.production` and fill the variables needed
 
-For local development, you can run `npm run server-dev` to run the server and `npm start` to run the client side of the application.
+```js
+// Install nvm important as per prerequisites, node version
+nvm install lts/fermium
+nvm use lts/fermium 
+npm install
+cp .env.example .env.development
+
+// Edit .env.development
+VIDEO_API_API_KEY=XXXX
+VIDEO_API_API_SECRET=YYYY
+SERVER_PORT=5000
+
+# Client Env Variables
+
+REACT_APP_PALETTE_PRIMARY=
+REACT_APP_PALETTE_SECONDARY=
+REACT_APP_API_URL_DEVELOPMENT=http://localhost:5000
+REACT_APP_API_URL_PRODUCTION=http://localhost:5000
+REACT_APP_VERSION=$npm_package_version
+
+cp .env.development .env.production
+npm run server-dev
+```
+
+For local development, in one terminal run `npm run server-dev` to run the server then in another teminal run `npm start` to run the client side of the application.
 
 ## Features
 
@@ -111,3 +134,10 @@ It's the main component of the application. It contains the ToolBar and the netw
 ## Deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-se/video-api-multiparty-toolkit-sample-app.git)
+
+
+Set the REACT_APP_API_URL_PRODUCTION
+
+https://${your_app_name}.herokuapp.com
+https://video-express-react-app-kphi.herokuapp.com
+
